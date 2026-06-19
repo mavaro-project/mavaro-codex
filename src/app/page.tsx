@@ -1,6 +1,15 @@
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { SectionTitle } from "@/components/SectionTitle";
+import Image from "next/image";
+
+const trustMetrics = [
+  { label: "RSVP rate", value: "76%" },
+  { label: "Felt more connected", value: "81%" },
+  { label: "Would attend again", value: "84%" },
+  { label: "Avg. session rating", value: "4.6/5" },
+  { label: "Connection score", value: "78" },
+];
 
 const adminBullets = [
   "Launch New Hire and Hybrid Connection Circles",
@@ -49,8 +58,18 @@ export default function Home() {
           </div>
 
           <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] bg-espresso p-6 text-parchment shadow-soft subtle-grid">
-            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-marigold/35 blur-3xl" />
-            <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-terracotta/35 blur-3xl" />
+            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-terracotta/35 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-marigold/30 blur-3xl" />
+            <div className="absolute right-6 top-6 z-20 hidden rounded-[2rem] bg-white/95 p-3 shadow-card md:block">
+              <Image
+                src="/brand/mavaro-icon-transparent.png"
+                alt=""
+                width={120}
+                height={122}
+                className="h-20 w-auto object-contain"
+                aria-hidden="true"
+              />
+            </div>
             <div className="relative z-10 grid h-full content-between gap-6">
               <div className="rounded-[2rem] bg-parchment/10 p-5 backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.24em] text-sand/70">Program forming</p>
@@ -120,10 +139,34 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-5 py-16 text-center md:px-8">
-          <p className="rounded-[2rem] bg-sage/18 px-6 py-5 text-lg leading-8 text-espresso/72">
+        {/* Trust metrics bar */}
+        <section className="mx-auto max-w-7xl px-5 py-10 md:px-8">
+          <div className="glass rounded-[2rem] px-6 py-7 shadow-card">
+            <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.26em] text-espresso/40">Program benchmark metrics</p>
+            <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+              {trustMetrics.map(({ label, value }) => (
+                <div key={label} className="text-center">
+                  <p className="font-display text-4xl text-espresso">{value}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.14em] text-espresso/50">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="mx-auto max-w-4xl px-5 py-16 text-center md:px-8">
+          <h2 className="font-display text-5xl tracking-tight text-espresso md:text-6xl">
+            Build connection programs your employees will actually show up for.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-espresso/64">
             Mavaro is built for real workplace connection — not another feed, chat, or forced happy hour.
+            Start an employer pilot and measure belonging from week one.
           </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button href="/admin/request-access">Start an Employer Pilot</Button>
+            <Button href="/how-it-works" variant="secondary">See how it works</Button>
+          </div>
         </section>
       </main>
     </>

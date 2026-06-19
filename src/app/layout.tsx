@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Footer } from "@/components/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -15,12 +16,19 @@ export const metadata: Metadata = {
     siteName: "Mavaro",
     type: "website",
   },
+  icons: {
+    icon: "/brand/mavaro-icon-transparent.png",
+    apple: "/brand/mavaro-icon-transparent.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
