@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { Button } from "./Button";
 import { KpiCard } from "./KpiCard";
 import { calculateConnectionScore } from "@/lib/analytics/connectionScore";
@@ -274,9 +275,24 @@ export function AdminClient() {
           <div className="mt-5 space-y-3">
             {orgUsers.map((user) => (
               <div key={user.id} className="flex items-center justify-between rounded-2xl bg-white/65 p-4">
-                <div>
-                  <p className="font-semibold text-espresso">{user.name}</p>
-                  <p className="text-sm text-espresso/55">{user.department ?? "Team pending"} · {formatTag(user.workMode ?? "hybrid")}</p>
+                <div className="flex items-center gap-3">
+                  {user.photo ? (
+                    <Image
+                      src={user.photo}
+                      alt={user.name}
+                      width={40}
+                      height={40}
+                      className="h-10 w-10 rounded-full object-cover ring-2 ring-white shadow-card"
+                    />
+                  ) : (
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-terracotta/10 text-sm font-semibold text-terracotta ring-2 ring-white">
+                      {user.name.charAt(0)}
+                    </div>
+                  )}
+                  <div>
+                    <p className="font-semibold text-espresso">{user.name}</p>
+                    <p className="text-sm text-espresso/55">{user.department ?? "Team pending"} · {formatTag(user.workMode ?? "hybrid")}</p>
+                  </div>
                 </div>
                 <span className="pill">{formatTag(user.roleLevel ?? "employee")}</span>
               </div>

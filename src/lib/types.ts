@@ -98,6 +98,7 @@ export interface UserProfile {
   dietaryRestrictions?: string;
   accessibilityNeeds?: string;
   notes?: string;
+  photo?: string;
   onboardingCompleted?: boolean;
   interests: string[];
   socialGoals: SocialGoal[];

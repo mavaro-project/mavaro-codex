@@ -3,6 +3,17 @@ import { Header } from "@/components/Header";
 import { SectionTitle } from "@/components/SectionTitle";
 import Image from "next/image";
 
+const sampleCircle = [
+  { name: "Farid", role: "Marketing", photo: "https://i.pravatar.cc/150?img=13" },
+  { name: "Maya", role: "Product", photo: "https://i.pravatar.cc/150?img=44" },
+  { name: "Julian", role: "Engineering", photo: "https://i.pravatar.cc/150?img=52" },
+  { name: "Nora", role: "People", photo: "https://i.pravatar.cc/150?img=5" },
+  { name: "Ari", role: "Marketing", photo: "https://i.pravatar.cc/150?img=59" },
+  { name: "Sofia", role: "Design", photo: "https://i.pravatar.cc/150?img=47" },
+  { name: "Leo", role: "Data", photo: "https://i.pravatar.cc/150?img=12" },
+  { name: "Imani", role: "Customer Success", photo: "https://i.pravatar.cc/150?img=38" },
+];
+
 const trustMetrics = [
   { label: "RSVP rate", value: "76%" },
   { label: "Felt more connected", value: "81%" },
@@ -134,6 +145,33 @@ export default function Home() {
             {useCases.map((useCase) => (
               <div key={useCase} className="rounded-[2rem] border border-espresso/10 bg-white/70 p-6 shadow-card">
                 <h3 className="font-display text-3xl text-espresso">{useCase}</h3>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Sample circle */}
+        <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+          <SectionTitle eyebrow="A Mavaro circle" title="Eight people. One shared program. Real connection.">
+            This is what a cross-team Hybrid Wednesday Circle looks like at a 342-person company.
+          </SectionTitle>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {sampleCircle.map((person) => (
+              <div key={person.name} className="flex flex-col items-center gap-3 text-center">
+                <div className="relative">
+                  <Image
+                    src={person.photo}
+                    alt={person.name}
+                    width={80}
+                    height={80}
+                    className="h-20 w-20 rounded-full object-cover shadow-card ring-4 ring-white"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-2 ring-terracotta/20" />
+                </div>
+                <div>
+                  <p className="font-semibold text-espresso">{person.name}</p>
+                  <p className="text-xs text-espresso/50">{person.role}</p>
+                </div>
               </div>
             ))}
           </div>

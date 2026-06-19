@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Button } from "./Button";
 import {
   loadMemberExperience,
@@ -132,9 +133,24 @@ export function DashboardClient() {
               </div>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {circle.members.slice(0, 8).map((member) => (
-                  <div key={member.id} className="rounded-2xl border border-espresso/10 bg-white/65 p-3">
-                    <p className="font-semibold text-espresso">{member.name.split(" ")[0]}</p>
-                    <p className="mt-1 text-xs text-espresso/55">{member.department ?? "Employee"}</p>
+                  <div key={member.id} className="flex items-center gap-3 rounded-2xl border border-espresso/10 bg-white/65 p-3">
+                    {member.photo ? (
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={36}
+                        height={36}
+                        className="h-9 w-9 flex-shrink-0 rounded-full object-cover ring-2 ring-white shadow-card"
+                      />
+                    ) : (
+                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-xs font-semibold text-terracotta ring-2 ring-white">
+                        {member.name.charAt(0)}
+                      </div>
+                    )}
+                    <div className="min-w-0">
+                      <p className="truncate font-semibold text-espresso">{member.name.split(" ")[0]}</p>
+                      <p className="mt-0.5 truncate text-xs text-espresso/55">{member.department ?? "Employee"}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -209,12 +225,15 @@ export function DashboardClient() {
                     key={member.id}
                     onClick={() => toggleMeetAgain(member.id)}
                     aria-pressed={meetAgain.includes(member.id)}
-                    className={`rounded-full border px-3 py-2 text-sm transition ${
+                    className={`flex items-center gap-2 rounded-full border px-3 py-2 text-sm transition ${
                       meetAgain.includes(member.id)
                         ? "border-espresso bg-espresso text-parchment"
-                        : "border-espresso/10 bg-white/65 text-espresso/70 hover:border-bronze"
+                        : "border-espresso/10 bg-white/65 text-espresso/70 hover:border-terracotta"
                     }`}
                   >
+                    {member.photo ? (
+                      <Image src={member.photo} alt={member.name} width={20} height={20} className="h-5 w-5 rounded-full object-cover" />
+                    ) : null}
                     {member.name.split(" ")[0]}
                   </button>
                 ))}

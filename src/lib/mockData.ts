@@ -18,6 +18,28 @@ export const organizations: Organization[] = [
 
 export const demoUsers: UserProfile[] = [
   {
+    id: "u-farid",
+    name: "Farid",
+    email: "farid@novaworks.example",
+    ageRange: "25-34",
+    city: "New York",
+    neighborhood: "NYC Office Hub",
+    company: "NovaWorks",
+    department: "Marketing",
+    organizationId: "company-nova",
+    organizationType: "employer",
+    workMode: "hybrid",
+    roleLevel: "individual_contributor",
+    tenure: "one_to_three_years",
+    interests: ["coffee", "startups", "design", "strategy"],
+    socialGoals: ["cross_functional_colleagues", "feel_connected"],
+    availability: ["weekday_lunch", "wednesday"],
+    preferredFormats: ["coffee_chats", "lunch_circles"],
+    vibes: ["casual", "professional"],
+    photo: "https://i.pravatar.cc/150?img=13",
+    onboardingCompleted: true,
+  },
+  {
     id: "u-1",
     name: "Maya Chen",
     email: "maya@novaworks.example",
@@ -36,6 +58,7 @@ export const demoUsers: UserProfile[] = [
     availability: ["weekday_lunch", "weekday_evening", "wednesday"],
     preferredFormats: ["lunch_circles", "walk_and_talks"],
     vibes: ["casual", "food_centered", "culture_focused"],
+    photo: "https://i.pravatar.cc/150?img=44",
     onboardingCompleted: true,
   },
   {
@@ -57,6 +80,7 @@ export const demoUsers: UserProfile[] = [
     availability: ["weekday_lunch", "weekday_afternoon", "wednesday"],
     preferredFormats: ["coffee_chats", "walk_and_talks"],
     vibes: ["professional", "active"],
+    photo: "https://i.pravatar.cc/150?img=52",
     onboardingCompleted: true,
   },
   {
@@ -79,6 +103,7 @@ export const demoUsers: UserProfile[] = [
     preferredFormats: ["manager_peer_circles", "lunch_circles"],
     vibes: ["reflective", "career_focused"],
     managerStatus: true,
+    photo: "https://i.pravatar.cc/150?img=5",
     onboardingCompleted: true,
   },
   {
@@ -100,6 +125,7 @@ export const demoUsers: UserProfile[] = [
     availability: ["weekday_evening", "wednesday", "thursday"],
     preferredFormats: ["team_dinners", "coffee_chats"],
     vibes: ["food_centered", "casual"],
+    photo: "https://i.pravatar.cc/150?img=59",
     onboardingCompleted: true,
   },
   {
@@ -121,6 +147,7 @@ export const demoUsers: UserProfile[] = [
     availability: ["weekday_lunch", "wednesday", "friday"],
     preferredFormats: ["lunch_circles", "walk_and_talks"],
     vibes: ["casual", "culture_focused"],
+    photo: "https://i.pravatar.cc/150?img=47",
     onboardingCompleted: true,
   },
   {
@@ -143,6 +170,7 @@ export const demoUsers: UserProfile[] = [
     preferredFormats: ["coffee_chats", "manager_peer_circles"],
     vibes: ["professional", "reflective"],
     managerStatus: true,
+    photo: "https://i.pravatar.cc/150?img=12",
     onboardingCompleted: true,
   },
   {
@@ -166,6 +194,7 @@ export const demoUsers: UserProfile[] = [
     vibes: ["food_centered", "culture_focused"],
     ergInterests: ["Women at Nova", "Global Cultures"],
     managerStatus: true,
+    photo: "https://i.pravatar.cc/150?img=38",
     onboardingCompleted: true,
   },
   {
