@@ -12,10 +12,10 @@ type LinkProps = BaseProps & AnchorHTMLAttributes<HTMLAnchorElement> & { href: s
 
 const variants = {
   primary:
-    "bg-espresso text-parchment shadow-card hover:-translate-y-0.5 hover:bg-ink focus:ring-espresso/20",
+    "bg-terracotta text-white shadow-card hover:-translate-y-0.5 hover:bg-clay focus:ring-terracotta/20",
   secondary:
-    "border border-espresso/10 bg-white/65 text-espresso hover:-translate-y-0.5 hover:bg-white focus:ring-bronze/20",
-  ghost: "text-espresso/70 hover:bg-espresso/5 focus:ring-bronze/20",
+    "border border-espresso/15 bg-white/75 text-espresso hover:-translate-y-0.5 hover:bg-white focus:ring-terracotta/10",
+  ghost: "text-espresso/65 hover:bg-espresso/5 focus:ring-terracotta/10",
 };
 
 export function Button(props: ButtonProps | LinkProps) {
