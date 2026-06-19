@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./Button";
 import { LogoutButton } from "./LogoutButton";
 import { getAuthContext } from "@/lib/auth/server";
@@ -9,10 +10,14 @@ export async function Header() {
   return (
     <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 md:px-8">
       <Link href="/" className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-espresso text-lg font-semibold text-parchment shadow-card">
-          M
-        </span>
-        <span className="font-display text-2xl tracking-tight text-espresso">Mavaro</span>
+        <Image
+          src="/brand/mavaro-wordmark-transparent.png"
+          alt="Mavaro"
+          width={198}
+          height={100}
+          priority
+          className="h-12 w-auto object-contain md:h-14"
+        />
         {!auth.configured ? (
           <span className="hidden rounded-full border border-espresso/10 bg-white/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-espresso/55 lg:inline-flex">
             Demo
