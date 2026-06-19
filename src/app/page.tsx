@@ -23,14 +23,14 @@ const trustMetrics = [
 ];
 
 const useCases = [
-  { label: "New Hire Circles", accent: true },
-  { label: "Hybrid Office-Day Circles", accent: false },
-  { label: "Cross-Team Lunch Circles", accent: false },
-  { label: "Manager Peer Circles", accent: false },
-  { label: "ERG Circles", accent: false },
-  { label: "Wellness Circles", accent: false },
-  { label: "City / Office Hub Circles", accent: false },
-  { label: "Culture & Belonging Circles", accent: false },
+  "New Hire Circles",
+  "Hybrid Office-Day Circles",
+  "Cross-Team Lunch Circles",
+  "Manager Peer Circles",
+  "ERG Circles",
+  "Wellness Circles",
+  "City / Office Hub Circles",
+  "Culture & Belonging Circles",
 ];
 
 export default function Home() {
@@ -169,16 +169,12 @@ export default function Home() {
             Eight ready-to-launch program templates. Each with a recommended cadence, format, and measurement goal.
           </SectionTitle>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-            {useCases.map(({ label, accent }) => (
+            {useCases.map((label) => (
               <div
                 key={label}
-                className={`rounded-[2rem] p-6 transition hover:-translate-y-0.5 ${
-                  accent
-                    ? "bg-terracotta text-white shadow-card"
-                    : "border border-espresso/8 bg-white shadow-card hover:border-terracotta/20"
-                }`}
+                className="group rounded-[2rem] border border-espresso/8 bg-white p-6 shadow-card transition hover:-translate-y-0.5 hover:border-transparent hover:bg-terracotta hover:shadow-soft"
               >
-                <h3 className={`font-display text-2xl leading-tight ${accent ? "text-white" : "text-espresso"}`}>
+                <h3 className="font-display text-2xl leading-tight text-espresso group-hover:text-white">
                   {label}
                 </h3>
               </div>
