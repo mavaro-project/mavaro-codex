@@ -53,15 +53,15 @@ export default function HowItWorksPage() {
 
             <div className="relative grid grid-cols-5 gap-3">
               {steps.map((step) => (
-                <div key={step.num} className="flex flex-col items-center text-center">
+                <div key={step.num} className="group flex flex-col items-center text-center">
                   {/* Number bubble */}
-                  <div className="relative z-10 mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-terracotta text-sm font-bold text-white shadow-card">
+                  <div className="relative z-10 mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-terracotta text-sm font-bold text-white shadow-card transition group-hover:bg-white group-hover:text-terracotta group-hover:ring-2 group-hover:ring-terracotta">
                     {step.num}
                   </div>
                   {/* Card */}
-                  <div className="w-full rounded-[1.5rem] border border-espresso/8 bg-white p-5 shadow-card">
-                    <p className="font-semibold text-espresso">{step.title}</p>
-                    <p className="mt-2 text-sm leading-6 text-espresso/58">{step.body}</p>
+                  <div className="w-full rounded-[1.5rem] border border-espresso/8 bg-white p-5 shadow-card transition group-hover:-translate-y-0.5 group-hover:border-transparent group-hover:bg-terracotta group-hover:shadow-soft">
+                    <p className="font-semibold text-espresso transition group-hover:text-white">{step.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-espresso/58 transition group-hover:text-white/80">{step.body}</p>
                   </div>
                 </div>
               ))}
