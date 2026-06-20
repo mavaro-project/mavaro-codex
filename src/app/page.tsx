@@ -22,6 +22,24 @@ const trustMetrics = [
   { label: "Connection score", value: "78" },
 ];
 
+const whyItMatters = [
+  {
+    stat: "2 in 10",
+    body: "employees have a best friend at work — yet those who do show measurably higher engagement, productivity, and retention.",
+    source: "Gallup",
+  },
+  {
+    stat: "Named essential",
+    body: "of workplace mental health by the U.S. Surgeon General, who specifically calls out hybrid and remote work as making intentional connection more critical.",
+    source: "U.S. Surgeon General",
+  },
+  {
+    stat: "75%",
+    body: "of desk workers are already using AI at work. As digital work accelerates, in-person human connection becomes the real differentiator.",
+    source: "Microsoft / LinkedIn",
+  },
+];
+
 const useCases = [
   "New Hire Circles",
   "Hybrid Office-Day Circles",
@@ -45,11 +63,11 @@ export default function Home() {
             Mavaro for People teams
           </p>
           <h1 className="font-display text-6xl leading-[0.92] tracking-tight text-espresso md:text-7xl lg:text-[5.5rem]">
-            Build real employee connection beyond Slack and happy hours.
+            Turn office days into connection days.
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-espresso/58">
-            Mavaro helps HR and People teams launch recurring small-group circles that strengthen
-            onboarding, hybrid culture, and workplace belonging — then measures whether it&apos;s working.
+            Work is becoming more automated, digital, and distributed. Human connection has to become more intentional.
+            Mavaro gives HR and People teams a structured way to launch recurring employee circles — and measure whether it&apos;s working.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href="/admin/request-access">Start an Employer Pilot</Button>
@@ -60,7 +78,7 @@ export default function Home() {
         {/* ── Sample circle avatars ─────────────────────────── */}
         <section className="mx-auto max-w-5xl px-5 py-12 md:px-8">
           <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-espresso/35">
-            A sample Mavaro circle — 8 colleagues, one shared program
+            A sample Mavaro circle — 8 colleagues matched by goals, availability, and work context
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {sampleCircle.map((person) => (
@@ -163,10 +181,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Why it matters ───────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-5 py-8 md:px-8">
+          <div className="overflow-hidden rounded-[2.5rem] bg-espresso p-10 shadow-soft md:p-14">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-marigold">Why it matters</p>
+            <h2 className="mt-4 max-w-2xl font-display text-4xl text-parchment md:text-5xl">
+              Connection is a workplace essential — not a nice-to-have.
+            </h2>
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {whyItMatters.map(({ stat, body, source }) => (
+                <div key={stat} className="rounded-[1.5rem] bg-white/8 p-6 backdrop-blur">
+                  <p className="font-display text-4xl text-terracotta">{stat}</p>
+                  <p className="mt-3 text-sm leading-7 text-parchment/65">{body}</p>
+                  <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-parchment/30">{source}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Use cases grid ───────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-          <SectionTitle eyebrow="Connection programs" title="Built for the moments where belonging is won or lost.">
-            Eight ready-to-launch program templates. Each with a recommended cadence, format, and measurement goal.
+          <SectionTitle eyebrow="Connection programs" title="Built for every stage of the employee journey.">
+            Eight ready-to-launch templates for new hires, hybrid teams, ERGs, managers, and more. Each with a recommended cadence, format, and measurement goal.
           </SectionTitle>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {useCases.map((label) => (
@@ -188,16 +225,16 @@ export default function Home() {
             {/* Admin card */}
             <div className="rounded-[2.5rem] bg-espresso p-8 text-parchment shadow-soft">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-marigold">Company admin</p>
-              <h2 className="mt-4 font-display text-5xl">Manage employee connection.</h2>
+              <h2 className="mt-4 font-display text-5xl">Connection infrastructure for People teams.</h2>
               <p className="mt-4 leading-7 text-parchment/65">
-                For People, HR, Workplace, Culture, and Employee Experience teams.
+                Mavaro turns connection from a one-off event into a repeatable, measurable workplace program — for HR, Workplace, Culture, and Employee Experience teams.
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
-                  "Launch New Hire and Hybrid Connection Circles",
-                  "Match employees into curated small groups",
-                  "Track RSVPs, attendance, and feedback",
-                  "Measure belonging with a connection score",
+                  "Launch circles for new hires, hybrid teams, ERGs, and managers",
+                  "Match employees into curated groups — not random pairings",
+                  "Track RSVPs, attendance, and post-session feedback",
+                  "Measure belonging with a reportable connection score",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-parchment/75">
                     <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-terracotta text-[10px] text-white">✓</span>
@@ -218,16 +255,16 @@ export default function Home() {
             {/* Employee card */}
             <div className="rounded-[2.5rem] border border-espresso/8 bg-white p-8 shadow-card">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-terracotta">Employee</p>
-              <h2 className="mt-4 font-display text-5xl text-espresso">Join your employee circle.</h2>
+              <h2 className="mt-4 font-display text-5xl text-espresso">Your circle is waiting.</h2>
               <p className="mt-4 leading-7 text-espresso/60">
-                For employees invited by their company to join a Mavaro Circle.
+                Invited by your company to join a Mavaro circle? Complete a short profile, get matched into a curated group, and show up. That&apos;s it.
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
-                  "Complete your employee profile",
-                  "Get matched into a curated circle",
-                  "RSVP to upcoming gatherings",
-                  "Share feedback after each session",
+                  "Complete a 3-minute employee profile",
+                  "Get matched into a curated small-group circle",
+                  "RSVP to upcoming in-person gatherings",
+                  "Share feedback and build your connection score",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-espresso/70">
                     <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-terracotta/12 text-[10px] text-terracotta">✓</span>
@@ -246,10 +283,10 @@ export default function Home() {
         {/* ── Final CTA ────────────────────────────────────── */}
         <section className="mx-auto max-w-3xl px-5 py-20 text-center md:px-8">
           <h2 className="font-display text-5xl leading-[0.94] tracking-tight text-espresso md:text-6xl">
-            Connection your employees will actually show up for.
+            Build the human layer of your workplace.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-espresso/55">
-            Mavaro is built for real workplace connection — not another feed, chat, or forced happy hour.
+            Mavaro is workplace connection infrastructure for the hybrid and AI era — warm, intentional, and built to repeat.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href="/admin/request-access">Start an Employer Pilot</Button>
