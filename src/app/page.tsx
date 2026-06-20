@@ -22,18 +22,80 @@ const trustMetrics = [
   { label: "Connection score", value: "78" },
 ];
 
+const features = [
+  {
+    color: "bg-terracotta/10 text-terracotta",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <circle cx="12" cy="12" r="3" /><circle cx="3.5" cy="6" r="2" /><circle cx="20.5" cy="6" r="2" />
+        <circle cx="3.5" cy="18" r="2" /><circle cx="20.5" cy="18" r="2" />
+        <path d="M5.5 7 10 10.5M14 10.5l4.5-3.5M5.5 17 10 13.5M14 13.5l4.5 3.5" />
+      </svg>
+    ),
+    title: "Curated matching",
+    body: "Groups built from availability, work mode, department, goals, and location — not random assignment or who sits nearby.",
+  },
+  {
+    color: "bg-marigold/12 text-bronze",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <path d="M17 2l4 4-4 4" /><path d="M3 11V9a4 4 0 0 1 4-4h14" />
+        <path d="M7 22l-4-4 4-4" /><path d="M21 13v2a4 4 0 0 1-4 4H3" />
+      </svg>
+    ),
+    title: "Recurring rhythm",
+    body: "Circles meet on a set cadence. Repeated interactions build the trust and familiarity that a one-off event never can.",
+  },
+  {
+    color: "bg-sage/20 text-teal",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    title: "In-person first",
+    body: "Lunches, walks, coffee chats. Every Mavaro format is designed for the kind of low-pressure, face-to-face connection that builds real bonds.",
+  },
+  {
+    color: "bg-navy/8 text-navy",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+        <path d="M18 20V10M12 20V4M6 20v-6" /><path d="M2 20h20" />
+      </svg>
+    ),
+    title: "Measurable belonging",
+    body: "Post-session feedback becomes a connection score HR can track over time and actually report to leadership.",
+  },
+];
+
 const whyItMatters = [
   {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-terracotta">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
     stat: "2 in 10",
     body: "employees have a best friend at work — yet those who do show measurably higher engagement, productivity, and retention.",
     source: "Gallup",
   },
   {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-terracotta">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
     stat: "Named essential",
-    body: "of workplace mental health by the U.S. Surgeon General, who specifically calls out hybrid and remote work as making intentional connection more critical.",
+    body: "of workplace mental health by the U.S. Surgeon General, who calls out hybrid work as making intentional connection more critical than ever.",
     source: "U.S. Surgeon General",
   },
   {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-terracotta">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
     stat: "75%",
     body: "of desk workers are already using AI at work. As digital work accelerates, in-person human connection becomes the real differentiator.",
     source: "Microsoft / LinkedIn",
@@ -72,6 +134,31 @@ export default function Home() {
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href="/admin/request-access">Start an Employer Pilot</Button>
             <Button href="/how-it-works" variant="secondary">See how it works</Button>
+          </div>
+
+          {/* Decorative connection visual */}
+          <div className="relative mx-auto mt-14 h-24 w-full max-w-lg select-none" aria-hidden="true">
+            <svg viewBox="0 0 480 96" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+              {/* Connecting lines */}
+              <line x1="60" y1="48" x2="150" y2="48" stroke="#E8604C" strokeWidth="1" strokeDasharray="4 4" strokeOpacity="0.3"/>
+              <line x1="150" y1="48" x2="240" y2="48" stroke="#E8604C" strokeWidth="1" strokeDasharray="4 4" strokeOpacity="0.3"/>
+              <line x1="240" y1="48" x2="330" y2="48" stroke="#E8604C" strokeWidth="1" strokeDasharray="4 4" strokeOpacity="0.3"/>
+              <line x1="330" y1="48" x2="420" y2="48" stroke="#E8604C" strokeWidth="1" strokeDasharray="4 4" strokeOpacity="0.3"/>
+              {/* Cross connections */}
+              <line x1="60" y1="48" x2="240" y2="48" stroke="#E8604C" strokeWidth="0.5" strokeOpacity="0.15"/>
+              <line x1="150" y1="48" x2="330" y2="48" stroke="#E8604C" strokeWidth="0.5" strokeOpacity="0.15"/>
+              <line x1="240" y1="48" x2="420" y2="48" stroke="#E8604C" strokeWidth="0.5" strokeOpacity="0.15"/>
+              {/* Nodes */}
+              {[60, 150, 240, 330, 420].map((cx, i) => (
+                <g key={cx}>
+                  <circle cx={cx} cy="48" r="20" fill="white" stroke="#E8604C" strokeWidth={i === 2 ? "2" : "1"} strokeOpacity={i === 2 ? "0.6" : "0.25"}/>
+                  <circle cx={cx} cy="48" r={i === 2 ? "10" : "7"} fill="#E8604C" fillOpacity={i === 2 ? "0.18" : "0.1"}/>
+                </g>
+              ))}
+              {/* Center pulse */}
+              <circle cx="240" cy="48" r="28" stroke="#E8604C" strokeWidth="1" strokeOpacity="0.1"/>
+            </svg>
+            <p className="mt-2 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-espresso/28">Employees connected intentionally</p>
           </div>
         </section>
 
@@ -113,8 +200,26 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Product preview (admin dashboard) ────────────── */}
+        {/* ── Feature highlights ───────────────────────────── */}
         <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+          <SectionTitle eyebrow="How Mavaro works" title="Connection that repeats, compounds, and measures.">
+            Four pillars that turn a People team&apos;s intention into real workplace belonging.
+          </SectionTitle>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map(({ color, icon, title, body }) => (
+              <div key={title} className="rounded-[2rem] border border-espresso/8 bg-white p-7 shadow-card transition hover:-translate-y-0.5 hover:shadow-soft">
+                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${color}`}>
+                  {icon}
+                </div>
+                <h3 className="mt-5 font-semibold text-espresso">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-espresso/58">{body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Product preview (admin dashboard) ────────────── */}
+        <section className="mx-auto max-w-7xl px-5 pb-16 md:px-8">
           <div className="overflow-hidden rounded-[3rem] bg-espresso shadow-soft">
             <div className="subtle-grid relative px-8 py-10 md:px-12 md:py-12">
               <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-terracotta/20 blur-3xl" />
@@ -132,13 +237,7 @@ export default function Home() {
                       <div className="mt-5 flex flex-wrap gap-2">
                         {sampleCircle.map((p) => (
                           <div key={p.name} className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5">
-                            <Image
-                              src={p.photo}
-                              alt={p.name}
-                              width={20}
-                              height={20}
-                              className="h-5 w-5 rounded-full object-cover"
-                            />
+                            <Image src={p.photo} alt={p.name} width={20} height={20} className="h-5 w-5 rounded-full object-cover" />
                             <span className="text-xs text-parchment/80">{p.name}</span>
                           </div>
                         ))}
@@ -181,6 +280,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Before / After ───────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-5 py-8 md:px-8">
+          <div className="grid gap-3 md:grid-cols-2">
+            {/* Without */}
+            <div className="rounded-[2.5rem] border border-espresso/8 bg-white p-8 shadow-card">
+              <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.24em] text-espresso/35">Without a connection program</p>
+              <ul className="space-y-4">
+                {[
+                  "Forced happy hours nobody wants to attend",
+                  "Engagement surveys that go nowhere",
+                  "New hires left to network on their own",
+                  "Slack channels with zero real connection",
+                  "Belonging you hope happens by accident",
+                  "No way to measure whether culture is working",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-espresso/50">
+                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-espresso/6 text-[11px] text-espresso/30">✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* With Mavaro */}
+            <div className="rounded-[2.5rem] bg-terracotta p-8 shadow-soft">
+              <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">With Mavaro</p>
+              <ul className="space-y-4">
+                {[
+                  "Recurring small-group circles with real purpose",
+                  "Employees matched by context, goals, and availability",
+                  "New hires placed in a circle from day one",
+                  "Low-pressure in-person formats people actually show up for",
+                  "Belonging that's structured, rhythmic, and repeatable",
+                  "A connection score HR can track and report",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-white/90">
+                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-[11px] text-white">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* ── Why it matters ───────────────────────────────── */}
         <section className="mx-auto max-w-7xl px-5 py-8 md:px-8">
           <div className="overflow-hidden rounded-[2.5rem] bg-espresso p-10 shadow-soft md:p-14">
@@ -189,8 +333,9 @@ export default function Home() {
               Connection is a workplace essential — not a nice-to-have.
             </h2>
             <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {whyItMatters.map(({ stat, body, source }) => (
+              {whyItMatters.map(({ icon, stat, body, source }) => (
                 <div key={stat} className="rounded-[1.5rem] bg-white/8 p-6 backdrop-blur">
+                  <div className="mb-4">{icon}</div>
                   <p className="font-display text-4xl text-terracotta">{stat}</p>
                   <p className="mt-3 text-sm leading-7 text-parchment/65">{body}</p>
                   <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-parchment/30">{source}</p>
